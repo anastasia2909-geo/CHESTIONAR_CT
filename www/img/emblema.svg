@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" aria-hidden="true">
+  <defs>
+    <linearGradient id="em-crom" x1="0.15" y1="0" x2="0.85" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.35" stop-color="#C9D3E2"/>
+      <stop offset="0.62" stop-color="#7F96BC"/>
+      <stop offset="0.8" stop-color="#E8EDF5"/>
+      <stop offset="1" stop-color="#1B3168"/>
+    </linearGradient>
+  </defs>
+  <circle cx="60" cy="60" r="58" fill="#0D1F45"/>
+  <ellipse cx="60" cy="66" rx="50" ry="15" fill="none" stroke="#C8A24E" stroke-width="2" transform="rotate(-18 60 66)"/>
+  <path d="M60 14 C60 14 34 50 34 70 a26 26 0 0 0 52 0 C86 50 60 14 60 14 Z" fill="url(#em-crom)"/>
+  <path d="M48 62 C48 54 53 46 56 41" fill="none" stroke="#FFFFFF" stroke-width="3.5" stroke-linecap="round" opacity="0.85"/>
+  <path d="M94 20 C94.6 25 96.5 26.8 101 27.5 C96.5 28.2 94.6 30 94 35 C93.4 30 91.5 28.2 87 27.5 C91.5 26.8 93.4 25 94 20 Z" fill="#C8A24E"/>
+</svg>

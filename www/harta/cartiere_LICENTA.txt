@@ -1,0 +1,19 @@
+Limitele cartierelor (www/harta/cartiere.geojson)
+=================================================
+
+Fișierul este o bază de date derivată din OpenStreetMap.
+© contribuitorii OpenStreetMap - https://www.openstreetmap.org/copyright
+Licență: Open Database License 1.0 (ODbL) - https://opendatacommons.org/licenses/odbl/1-0/
+
+Proveniență: delimitările din anexa 1 la HCL nr. 79/28.02.2023 a Consiliului
+Local al municipiului Constanța, desenate pe linii OpenStreetMap (extrasul
+Geofabrik al României din 08.10.2026) de pachetul
+@nspot/geo-pack-romania-neighbourhoods, versiunea 1.6.0 (ODbL 1.0), și
+verificate cu planurile din anexa 2. Fișierul a fost convertit cu
+scripts/importa_cartiere_osm.R: codurile și denumirile cartierelor sunt cele din
+chestionar, iar coordonatele sunt rotunjite la 6 zecimale.
+
+Limitele sunt orientative, nu limite cadastrale oficiale.
+
+Fișierul se poate reutiliza în condițiile ODbL 1.0: cu atribuirea de mai sus,
+iar o bază de date derivată, folosită public, se oferă tot sub ODbL.

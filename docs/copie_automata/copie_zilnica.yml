@@ -1,0 +1,71 @@
+# Copie zilnică a răspunsurilor din baza PostgreSQL (Neon) într-un depozit
+# GitHub PRIVAT, separat de cel al aplicației. Pașii: docs/GAZDUIRE.md, etapa 8.
+#
+# Fișierul se pune în depozitul privat la calea:
+#   .github/workflows/copie_zilnica.yml
+# și are nevoie de secretul CHESTIONAR_DB_URL (Settings > Secrets and variables
+# > Actions), cu aceeași adresă ca în Connect Cloud.
+#
+# Ce face: în fiecare noapte citește tabela `raspunsuri` și salvează în folderul
+# copii/ trei fișiere: raspunsuri.csv (se deschide în Excel), raspunsuri.sql
+# (copia completă, pentru refacerea bazei) și numar.txt. Dacă s-a schimbat ceva
+# față de ziua precedentă, face un commit; istoricul depozitului păstrează
+# fiecare versiune. Nu scrie și nu șterge nimic în baza de date.
+
+name: Copie zilnică a răspunsurilor
+
+on:
+  schedule:
+    - cron: "23 2 * * *"     # în fiecare zi la 02:23 UTC (04:23 sau 05:23 ora României)
+  workflow_dispatch:          # buton „Run workflow”, pentru o copie la cerere
+
+permissions:
+  contents: write
+
+concurrency: copie
+
+jobs:
+  copie:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Citește răspunsurile din baza de date
+        env:
+          CHESTIONAR_DB_URL: ${{ secrets.CHESTIONAR_DB_URL }}
+        run: |
+          set -euo pipefail
+          if [ -z "${CHESTIONAR_DB_URL}" ]; then
+            echo "::error::Lipsește secretul CHESTIONAR_DB_URL (Settings > Secrets and variables > Actions)."
+            exit 1
+          fi
+          # Clientul PostgreSQL 18 din imaginea oficială; citește și baze mai vechi.
+          pg() { docker run --rm -i -e CHESTIONAR_DB_URL postgres:18 "$@"; }
+          mkdir -p copii
+          n=$(pg sh -c 'psql "$CHESTIONAR_DB_URL" -X -At -v ON_ERROR_STOP=1 -c "SELECT COUNT(*) FROM raspunsuri"')
+          pg sh -c 'pg_dump --dbname="$CHESTIONAR_DB_URL" --table=raspunsuri --no-owner --no-privileges' > copii/raspunsuri.sql
+          { printf '\xEF\xBB\xBF'
+            pg sh -c 'psql "$CHESTIONAR_DB_URL" -X -v ON_ERROR_STOP=1 -c "\copy (SELECT * FROM raspunsuri ORDER BY submitted_at, response_id) TO STDOUT WITH (FORMAT csv, HEADER)"'
+          } > copii/raspunsuri.csv
+          inainte=$(cat copii/numar.txt 2>/dev/null || echo 0)
+          echo "$n" > copii/numar.txt
+          echo "Răspunsuri în baza de date: $n (la copia precedentă: $inainte)."
+          if [ "$n" -lt "$inainte" ]; then
+            echo "::warning::Numărul de răspunsuri a scăzut de la $inainte la $n. Copiile anterioare rămân în istoricul depozitului."
+          fi
+          echo "N=$n" >> "$GITHUB_ENV"
+
+      - name: Salvează copia în depozit
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          if [ -n "$(git status --porcelain -- copii/raspunsuri.csv)" ]; then
+            git add copii
+            git commit -m "Copie $(date -u +%Y-%m-%d): $N răspunsuri"
+            git push
+          else
+            git checkout -- copii 2>/dev/null || true
+            echo "Nicio schimbare față de copia precedentă."
+          fi

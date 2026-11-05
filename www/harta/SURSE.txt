@@ -1,0 +1,29 @@
+Datele din acest folder
+=======================
+
+uat.geojson
+  Limitele unităților administrativ-teritoriale (UAT) din jurul municipiului
+  Constanța: 20 de poligoane, inclusiv municipiul Constanța.
+  Sursa primară: Agenția Națională de Cadastru și Publicitate Imobiliară
+  (ANCPI), setul „Unități administrative”, data.gov.ro, licență CC BY 4.0
+  (an de referință 2016; actualizare a sursei: 19.01.2023).
+  Redistribuit de geoBoundaries (gbOpen, ROU ADM2, boundaryID ROU-ADM2-2599482):
+  https://www.geoboundaries.org
+  Runfola D. et al. (2020) geoBoundaries: A global database of political
+  administrative boundaries. PLoS ONE 15(4): e0231866.
+  https://doi.org/10.1371/journal.pone.0231866
+  Prelucrare: scripts/pregateste_harta.R (decupare, simplificare 10 m,
+  coordonate rotunjite la 5 zecimale, nume cu diacritice adăugate pentru afișare).
+
+planuri/anexa_2_NN.jpg
+  Planurile scanate ale celor 42 de cartiere din anexa 2 la HCL nr. 79 din
+  28.02.2023 a Consiliului Local al municipiului Constanța (paginile 4–45 ale
+  PDF-ului furnizat de autoare), rotite pentru citire și comprimate.
+  NN = numărul cartierului din anexa 1 (de exemplu, anexa_2_35.jpg = Tomis Nord).
+  Planurile nu au coordonate și nu sunt folosite ca date geografice.
+  Fundalul planurilor provine din hărțile Esri folosite de primărie (atribuirea
+  Esri este tipărită pe fiecare plan).
+
+cartiere.geojson (nu este inclus)
+  Dacă se obțin limitele vectoriale ale cartierelor, fișierul se pune aici;
+  vezi docs/HARTA_DATE_SI_LIMITARI.md.

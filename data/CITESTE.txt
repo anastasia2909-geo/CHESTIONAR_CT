@@ -1,0 +1,1 @@
+Bazele de date SQLite sunt create aici automat la prima pornire.

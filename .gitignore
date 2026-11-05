@@ -1,0 +1,18 @@
+# Nu se pun pe GitHub: parolele, datele și fișierele locale.
+.Renviron
+.Rhistory
+.RData
+.Rproj.user/
+rsconnect/
+
+# Bazele de date, copiile și exporturile (răspunsurile rămân doar la autoare)
+*.sqlite
+*.sqlite-journal
+*.sqlite-wal
+*.sqlite-shm
+copii_siguranta/
+export/
+
+# Fișiere ale sistemului
+.DS_Store
+Thumbs.db

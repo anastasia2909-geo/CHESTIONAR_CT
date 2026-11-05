@@ -1,0 +1,23 @@
+# Copiați acest fișier cu numele .Renviron (în același folder) și completați.
+# După modificare: în RStudio, Session > Restart R.
+# Fișierul .Renviron NU se trimite nimănui și nu se pune pe GitHub.
+
+# Parola pentru zona de administrare (adresa aplicației + ?admin).
+# Folosiți o parolă lungă, pe care nu o mai folosiți în altă parte.
+CHESTIONAR_ADMIN_PAROLA=
+
+# Modul aplicației: test sau productie (implicit: test)
+CHESTIONAR_MOD=test
+
+# Opțional: alt folder pentru bazele de date (implicit: data în folderul aplicației)
+# CHESTIONAR_DATA_DIR=
+
+# Opțional: baza PostgreSQL în care se salvează răspunsurile (de exemplu, Neon).
+# Fără ea, răspunsurile se salvează în fișierele SQLite din folderul data.
+# Adresa conține parola bazei: se copiază din consola Neon („Connect”) și nu se
+# trimite nimănui. Pe server se pune ca variabilă secretă (docs/GAZDUIRE.md).
+# CHESTIONAR_DB_URL=postgresql://utilizator:parola@gazda.neon.tech/neondb?sslmode=require
+
+# Opțional: fișierul GeoJSON cu limitele celor 42 de cartiere, dacă nu este în
+# www/harta/cartiere.geojson (calea completă). Vezi docs/HARTA_DATE_SI_LIMITARI.md.
+# CHESTIONAR_CARTIERE_GEOJSON=
