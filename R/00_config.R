@@ -8,8 +8,8 @@
 
 `%||%` <- function(a, b) if (is.null(a)) b else a
 
-VERSIUNE_APLICATIE   <- "3.3.0"
-VERSIUNE_CHESTIONAR  <- "Chestionar_ct_revizuit (2026)"
+VERSIUNE_APLICATIE   <- "3.4.0"
+VERSIUNE_CHESTIONAR  <- "Chestionar_ct_revizuit (2026), revizia coordonatorului (05.11.2026)"
 
 # --- Modul de lucru -----------------------------------------------------------
 # "test"      -> răspunsurile merg în data/raspunsuri_TEST.sqlite, apare banda
@@ -174,8 +174,8 @@ Q21_OBLIGATORIE <- TRUE
 # --- Titlu și autoare ---------------------------------------------------------------
 # Titlul lucrării este titlul principal al site-ului (pagina de start, fila
 # browserului, metadate). Site-ul nu are slogan.
-TITLU_ACADEMIC <- "Evaluarea comportamentelor populației și a nivelului de conștientizare privind gestionarea apelor uzate în municipiul Constanța"
-TITLU_SCURT    <- "Chestionar despre apele uzate în Constanța"   # zona de administrare
+TITLU_ACADEMIC <- "Evaluarea percepției populației față de consumul de apă în municipiul Constanța"
+TITLU_SCURT    <- "Chestionar despre consumul de apă în Constanța"   # zona de administrare
 
 AUTOARE <- list(
   nume       = "Anastasia NICEA",

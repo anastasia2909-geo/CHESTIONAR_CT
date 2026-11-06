@@ -859,3 +859,31 @@ html.admin table.dataTable thead input { width: 100% !important; min-width: 5rem
   .gata-unde ellipse:first-child { opacity: 0.6; transform: scale(1.6); }
 }
 @media (max-width: 599px) { .harta-legenda { font-size: 0.7rem; max-width: 9.5rem; padding: 0.35rem 0.5rem; } }
+
+/* ---------- Q26: evaluarea cu stele (1-5) ---------- */
+.q .stele .shiny-options-group {
+display: grid; grid-template-columns: repeat(5, minmax(0, 1fr));
+gap: 0.1rem; max-width: 22rem;
+}
+.q .stele .radio label, .q .stele .radio label:hover,
+.q .stele .radio label:has(input:checked) {
+flex-direction: column; align-items: center; gap: 0.2rem;
+min-height: 0; padding: 0.3rem 0.1rem; border-radius: 10px;
+background: transparent; border-color: transparent; box-shadow: none;
+font-size: 0.82rem; white-space: nowrap; color: var(--ink-2);
+}
+.q .stele input[type="radio"] {
+width: 2.4rem; height: 2.4rem; margin: 0; border: 0; border-radius: 0;
+background: var(--linie-tare);
+clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%,
+50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+}
+.q .stele .radio:hover input[type="radio"],
+.q .stele .radio:has(~ .radio:hover) input[type="radio"] {
+background: var(--aur-deschis);
+}
+.q .stele .radio:has(input:checked) input[type="radio"],
+.q .stele .radio:has(~ .radio input:checked) input[type="radio"] {
+background: var(--aur);
+}
+.q .stele .radio:has(input:checked) label { color: var(--ink); font-weight: 700; }

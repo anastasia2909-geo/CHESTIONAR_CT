@@ -176,7 +176,7 @@ construieste_intrebari <- function(zone = citeste_zone_q1()) {
          randuri = c(servetele_umede = "Șervețele umede",
                      prosoape_hartie = "Prosoape/șervețele de hârtie",
                      betisoare_dischete = "Bețișoare/dischete demachiante",
-                     igiena_menstruala = "Produse de igienă menstruală",
+                     ingrijire_personala = "Produse de igienă și îngrijire personală",
                      scutece = "Scutece/materiale similare",
                      ata_par_obiecte = "Ață dentară, păr sau obiecte mici",
                      resturi_alimentare = "Resturi alimentare",
@@ -328,9 +328,31 @@ construieste_intrebari <- function(zone = citeste_zone_q1()) {
          eticheta_camp = "Răspuns liber (opțional)",
          note  = "Vă rugăm să nu scrieți nume, adrese sau alte date care v-ar putea identifica.",
          obligatorie = FALSE,
-         nota_autoare = "Nota de sub câmp nu este în sursă; a fost adăugată pentru protecția datelor și poate fi ștearsă.")
+         nota_autoare = "Nota de sub câmp nu este în sursă; a fost adăugată pentru protecția datelor și poate fi ștearsă."),
+    
+    list(id = "q26", nr = 26, sectiune = 4, tip = "unic", stele = TRUE,
+         titlu = "Părerea dumneavoastră despre chestionar",
+         text = "Cât de mulțumit(ă) sunteți de acest chestionar?",
+         var = "q26_satisfactie",
+         optiuni = c("1" = "1 stea", "2" = "2 stele", "3" = "3 stele",
+                     "4" = "4 stele", "5" = "5 stele"),
+         note = "1 stea = foarte nemulțumit(ă), 5 stele = foarte mulțumit(ă).",
+         obligatorie = FALSE),
+    
+    list(id = "q27", nr = 27, sectiune = 4, tip = "text",
+         titlu = "Observații despre chestionar",
+         text = paste("Aveți observații despre acest chestionar? De exemplu,",
+                      "o întrebare neclară, durata completării sau altceva",
+                      "ce ar putea fi îmbunătățit."),
+         var = "q27_feedback",
+         eticheta_camp = "Răspuns liber (opțional)",
+         note = paste("Vă rugăm să nu scrieți nume, adrese sau alte date",
+                      "care v-ar putea identifica."),
+         obligatorie = FALSE)
+         
   )
 
+    
   # Valori implicite
   Q <- lapply(Q, function(q) {
     if (is.null(q$obligatorie)) q$obligatorie <- TRUE
@@ -339,7 +361,7 @@ construieste_intrebari <- function(zone = citeste_zone_q1()) {
     q
   })
   names(Q) <- vapply(Q, `[[`, "", "id")
-  stopifnot(length(Q) == 25, identical(unname(vapply(Q, `[[`, 0, "nr")), as.numeric(1:25)))
+  stopifnot(length(Q) == 27, identical(unname(vapply(Q, `[[`, 0, "nr")), as.numeric(1:27)))
   Q
 }
 
@@ -375,7 +397,7 @@ schema_date <- function(Q) {
   for (q in Q) {
     et <- paste0("Q", q$nr, ". ", q$titlu, " — ", q$text)
     switch(q$tip,
-      lista = , unic = add(q$var, q$id, "categorie (răspuns unic)", "TEXT", et, coduri(q$optiuni), lipsa_std),
+      lista = , unic = add(q$var, q$id, "categorie (răspuns unic)", "TEXT", et, coduri(q$optiuni), if (q$obligatorie) lipsa_std else "gol (NA) = fără răspuns (opțional)"),
       numar = add(q$var, q$id, "număr întreg", "INTEGER", et,
                   paste0("1–", LIMITA_PERSOANE_GOSPODARIE), lipsa_std),
       numere_grup = for (k in names(q$campuri)) {
@@ -448,3 +470,5 @@ etichete_variabila <- function(Q, var) {
   }
   NULL
 }
+
+

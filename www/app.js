@@ -130,8 +130,8 @@
   $(document).on('input change', '[id^="q09_"]', totalQ9);
 
   /* ---------- Q25: contor de caractere */
-  $(document).on('input', '#q25', function () {
-    var c = document.getElementById('q25-contor');
+  $(document).on('input', '#q25, #q27', function () {
+    var c = document.getElementById(this.id + '-contor');
     if (c) c.textContent = this.value.length + ' / ' + this.getAttribute('maxlength') + ' caractere';
   });
 
@@ -247,12 +247,12 @@
       // Procentul = întrebările din secțiunile deja parcurse (din 25).
       var procent = 0, stare = '';
       if (pas >= 1 && pas <= 4 && msg.intrebari) {
-        procent = Math.round((msg.intrebari[0] - 1) / 25 * 100);
+        procent = Math.round((msg.intrebari[0] - 1) / 27 * 100);
         stare = 'Secțiunea ' + pas + ' din 4: ' + msg.titlu + '. Întrebările ' + msg.intrebari[0] +
-          '–' + msg.intrebari[1] + ' din 25.';
+          '–' + msg.intrebari[1] + ' din 27.';
       } else if (pas === 5) {
         procent = 100;
-        stare = 'Verificarea răspunsurilor. Toate cele 25 de întrebări au fost parcurse.';
+        stare = 'Verificarea răspunsurilor. Toate cele 27 de întrebări au fost parcurse.';
       }
       var bara = nav.querySelector('.progres-bara');
       bara.setAttribute('aria-valuemin', '0');

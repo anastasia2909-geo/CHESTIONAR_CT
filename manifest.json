@@ -2488,7 +2488,7 @@
       "checksum": "9ae5ebe81b9836e44b640c700be0feb1"
     },
     "config/informare_consimtamant.md": {
-      "checksum": "29b183cbde5dddf7cfcb9b885ad6f035"
+      "checksum": "0c7c86fc61e4549987ee5be8b5317af5"
     },
     "config/zone_q1.csv": {
       "checksum": "97ee44cbea0455be5256744659eb09c9"
@@ -2497,13 +2497,13 @@
       "checksum": "2076fc56c3da5d9a3b8f318f37bd8c1e"
     },
     "R/00_config.R": {
-      "checksum": "f76b003e0add021d77c1c2021ceecf57"
+      "checksum": "b61a52e16af58fb56a21c81b9c478177"
     },
     "R/01_intrebari.R": {
-      "checksum": "405cdea53fda9a4612087fb7471ad043"
+      "checksum": "28cd588586d1e848546239f3e1ab185a"
     },
     "R/02_validare.R": {
-      "checksum": "68aadc8b90e774d616d1e87383bf751f"
+      "checksum": "bed7f13502e6cf66fe1f439e663bade8"
     },
     "R/03_stocare.R": {
       "checksum": "b2ef6def287e8e122bea824208bdd3b7"
@@ -2515,10 +2515,10 @@
       "checksum": "4091738860328cb3a724fcabce52f3c7"
     },
     "R/06_ui_componente.R": {
-      "checksum": "984c646c3490cd313293ae7cb8e64e48"
+      "checksum": "a8bcee012d08b56fbd8b2367a8124452"
     },
     "R/07_ui.R": {
-      "checksum": "519ed65c96c73da520ee17437df3206b"
+      "checksum": "09897aba3edddf0c2f5730a7f47a250a"
     },
     "R/08_server.R": {
       "checksum": "f7a3b7e841e1f2a91c1ab8c476e43ff4"
@@ -2536,10 +2536,10 @@
       "checksum": "1c70d8d6210e26544a96fe40ec2da98d"
     },
     "R/13_recomandari.R": {
-      "checksum": "ec204e4e647be2f4687623cdb6f9b765"
+      "checksum": "7b277fed8c4f923365ed7544613c6289"
     },
     "www/app.js": {
-      "checksum": "17a30a7362d25dbeb206bdbc0ab6681a"
+      "checksum": "bf7a5f088a29b3028d32ed24e9b43dd6"
     },
     "www/fonts/atkinson-hyperlegible-latin-400-italic.woff2": {
       "checksum": "de4c0c22fd4ea8159eb984ddc5950346"
@@ -2755,7 +2755,7 @@
       "checksum": "609e72f97803246ff294511b99c8c89a"
     },
     "www/styles.css": {
-      "checksum": "1596160c57b14285d601781cf2b004a4"
+      "checksum": "bc2762292e5e78ff2112a3473f0ce930"
     }
   },
   "users": null

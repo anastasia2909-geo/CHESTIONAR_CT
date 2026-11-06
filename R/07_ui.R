@@ -122,7 +122,7 @@ pagina_acasa <- function(mod) {
           "și despre informațiile pe care le aveți privind apele uzate din Constanța. ",
           "La final veți vedea un profil construit din propriile răspunsuri."),
         tags$ul(class = "start-fapte",
-          tags$li(span(class = "fapt-cifra", "25"), span(class = "fapt-text", "întrebări, în 4 secțiuni")),
+          tags$li(span(class = "fapt-cifra", "27"), span(class = "fapt-text", "întrebări, în 4 secțiuni")),
           if (!is.null(durata)) tags$li(span(class = "fapt-cifra", DURATA_ESTIMATA_MINUTE),
                                         span(class = "fapt-text", "minute, estimat"))
           else if (identical(mod, "test")) tags$li(class = "fapt-lipsa",
@@ -179,7 +179,7 @@ pagina_sectiune <- function(Q, s, mod) {
   are_optionale <- any(!vapply(qs, function(q) isTRUE(q$obligatorie), logical(1)))
   tagList(
     div(class = "cap-sectiune",
-        p(class = "sectiune-nr", paste0("Secțiunea ", s, " din 4, întrebările ", min(nr), "–", max(nr), " din 25")),
+        p(class = "sectiune-nr", paste0("Secțiunea ", s, " din 4, întrebările ", min(nr), "–", max(nr), " din 27")),
         h2(id = paste0("titlu-s", s), tabindex = "-1", SECTIUNI[[s]]$titlu),
         p(class = "sectiune-info",
           if (are_optionale) "Toate întrebările sunt obligatorii, cu excepția celor marcate „opțional”."

@@ -39,3 +39,4 @@ probleme <- c(
 if (length(probleme)) stop("manifest.json nu este corect: ", paste(probleme, collapse = "; "), call. = FALSE)
 message("manifest.json este gata: R ", m$platform, ", ", length(pachete), " pachete, ",
         length(listate), " fișiere. Trimiteți-l pe GitHub (Commit și Push).")
+

@@ -1,8 +1,8 @@
 test_that("chestionarul are 25 de întrebări în ordinea și secțiunile aprobate", {
-  expect_length(Q, 25)
-  expect_equal(unname(vapply(Q, `[[`, 0, "nr")), 1:25)
+  expect_length(Q, 27)
+  expect_equal(unname(vapply(Q, `[[`, 0, "nr")), 1:27)
   sect <- vapply(Q, `[[`, 0, "sectiune")
-  expect_equal(as.integer(table(sect)), c(7L, 6L, 5L, 7L))
+  expect_equal(as.integer(table(sect)), c(7L, 6L, 5L, 9L))
 })
 
 test_that("textele verificate față de documentul aprobat", {
@@ -65,7 +65,7 @@ test_that("informarea numește doar autoarea, fără coordonator și fără sec�
 })
 
 test_that("titlul academic exact, fără slogan", {
-  expect_equal(TITLU_ACADEMIC, "Evaluarea comportamentelor populației și a nivelului de conștientizare privind gestionarea apelor uzate în municipiul Constanța")
+  expect_equal(TITLU_ACADEMIC, "Evaluarea percepției populației față de consumul de apă în municipiul Constanța")
   expect_false(exists("SLOGAN"))
   expect_equal(AUTOARE$nume, "Anastasia NICEA")
 })

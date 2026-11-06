@@ -49,8 +49,8 @@ control_intrebare <- function(q) {
                         choices = c("Alegeți din listă" = "", alegeri(q$optiuni)),
                         selected = "", selectize = FALSE, width = "100%"),
 
-    unic = radioButtons(q$id, q$text, choices = alegeri(q$optiuni),
-                        selected = character(0), width = "100%"),
+    unic = cu_stele(q, radioButtons(q$id, q$text, choices = alegeri(q$optiuni),
+                        selected = character(0), width = "100%")),
 
     multiplu = {
       cb <- checkboxGroupInput(q$id, q$text, choices = alegeri(q$optiuni), width = "100%")
@@ -107,7 +107,7 @@ control_intrebare <- function(q) {
         textAreaInput(q$id, q$text, value = "", width = "100%", rows = 4,
                       placeholder = q$eticheta_camp, resize = "vertical"),
         .cssSelector = "textarea", maxlength = LUNGIME_MAXIMA_Q25),
-      div(class = "contor", id = "q25-contor", `aria-live` = "polite",
+      div(class = "contor", id = paste0(q$id, "-contor"), `aria-live` = "polite",
           paste0("0 / ", LUNGIME_MAXIMA_Q25, " caractere"))),
 
     stop("Tip necunoscut: ", q$tip)
@@ -136,4 +136,10 @@ bloc_intrebare <- function(q, mod) {
                              bloc, class = "q-conditionata")
   }
   bloc
+}
+
+
+# Q26: variantele apar ca 5 stele (stilul este la sfârșitul www/styles.css).
+cu_stele <- function(q, control) {
+  if (isTRUE(q$stele)) htmltools::tagAppendAttributes(control, class = "stele") else control
 }

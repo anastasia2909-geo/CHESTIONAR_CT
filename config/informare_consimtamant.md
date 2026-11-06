@@ -1,6 +1,6 @@
 ## Despre acest chestionar
 
-Chestionarul face parte din lucrarea de licență „Evaluarea comportamentelor populației și a nivelului de conștientizare privind gestionarea apelor uzate în municipiul Constanța”, realizată de Anastasia NICEA, la Universitatea din București, Facultatea de Geografie. Răspunsurile sunt folosite pentru această cercetare academică.
+Chestionarul face parte din lucrarea de licență „Evaluarea percepției populației față de consumul de apă în municipiul Constanța”, realizată de Anastasia NICEA, la Universitatea din București, Facultatea de Geografie. Răspunsurile sunt folosite pentru această cercetare academică.
 
 Întrebările se referă la folosirea apei în gospodărie, la ce ajunge în canalizare, la informațiile despre canalizare și epurare și la problemele observate în oraș. Chestionarul nu evaluează funcționarea tehnică a rețelei de canalizare sau a stațiilor de epurare.
 

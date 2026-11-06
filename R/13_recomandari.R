@@ -80,7 +80,7 @@ recomandari <- function(Q, rec) {
   q12 <- coduri_q12(Q, rec)
   aruncat <- function(k) isTRUE(q12[[k]] %in% MOTIVE_ARUNCAT)
   obiecte_igiena <- c("servetele_umede", "prosoape_hartie", "betisoare_dischete",
-                      "igiena_menstruala", "scutece", "ata_par_obiecte")
+                      "ingrijire_personala", "scutece", "ata_par_obiecte")
   r <- list()
   add <- function(id, titlu, text, surse, legata = NULL) {
     r[[length(r) + 1]] <<- list(id = id, titlu = titlu, text = text, surse = surse, legata = legata)

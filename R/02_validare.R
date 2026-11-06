@@ -74,7 +74,7 @@ valideaza_intrebare <- function(q, v) {
 
     unic = {
       x <- v[[q$id]]
-      if (este_gol(x)) return("Alegeți un răspuns.")
+      if (este_gol(x)) return(if (q$obligatorie) "Alegeți un răspuns." else NULL)
       if (!x %in% names(q$optiuni)) return("Răspunsul nu este unul dintre variantele afișate.")
       NULL
     },
